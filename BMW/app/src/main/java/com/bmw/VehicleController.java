@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
+//defines rest api endpoints for frontend interactions, proccesses req and interacts with vehiclerepo and reutrns responses
 @RestController
+
 public class VehicleController {
     @Autowired
     private VehicleRepository vehicleRepository;

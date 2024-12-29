@@ -13,7 +13,7 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer vehicleId;
   //  private double id;
-   private String make;
+  // private String make;
     private String model;
     private double year;
     private double price;
@@ -41,13 +41,6 @@ public class Vehicle {
     //    this.id = id;
    // }
 
-public String getmake(){
-    return make;
-}
-public void setmake(String make)
-{
-    this.make = make;
-}
 
     public String getModel() {
         return model;
