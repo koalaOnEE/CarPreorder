@@ -30,7 +30,7 @@ public class Vehicle {
         return vehicleId;
     }
 
-    public void setvehicleID(Integer vehicleId) {
+    public void setvehicleId(Integer vehicleId) {
         this.vehicleId = vehicleId;
     }
    // public double getId() {

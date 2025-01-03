@@ -42,4 +42,5 @@ VALUES
 ( 'X7', 2024, 83000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
 ( 'iX', 2024, 87000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
 ( '2 Series', 2024, 41600, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( '3 Series', 2024, 45000, 'White', 'Sedan', 'Diesel', 'Manual', true, 'Heated 
+( '3 Series', 2024, 45000, 'White', 'Sedan', 'Diesel', 'Manual', true, 'Heated' );
+
