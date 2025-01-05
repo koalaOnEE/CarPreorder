@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS vehicles;
 
 CREATE TABLE users (
-    user_id SERIAL PRIMARY KEY,
+    userID SERIAL PRIMARY KEY,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     name VARCHAR(100) NOT NULL
@@ -15,7 +15,7 @@ CREATE TABLE vehicles (
     year INT NOT NULL,
     price DECIMAL(10, 2),
     color VARCHAR(50),
-    body_type VARCHAR(50) NOT NULL,
+    bodyType VARCHAR(50) NOT NULL,
     engine VARCHAR(100) NOT NULL,
     transmission VARCHAR(50) NOT NULL,
     availability BOOLEAN DEFAULT TRUE,
@@ -31,7 +31,7 @@ CREATE TABLE preorders (
     FOREIGN KEY (vehicle_id) REFERENCES vehicles(vehicle_id) ON DELETE CASCADE
 );
 
-INSERT INTO vehicles (model, year, price, color, body_type, engine, transmission, availability, features)
+INSERT INTO vehicles (model, year, price, color, bodyType, engine, transmission, availability, features)
 VALUES
 ( 'X1', 2024, 41000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
 ( 'X2', 2024, 43000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),

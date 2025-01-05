@@ -54,10 +54,12 @@ sourceSets {
 }
 
 application {
-    mainClass = 'com.bmw.App'
+    mainClass = 'com.bmw.Application'
 }
 
-
+springBoot {
+    mainClass = "com.bmw.Application"
+}
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()

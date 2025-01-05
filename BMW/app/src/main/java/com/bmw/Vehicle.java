@@ -19,7 +19,7 @@ public class Vehicle {
     private double price;
     private String color;
     private String engine;
-    private String body_type;
+    private String bodyType;
     private String transmission;
 
     private boolean availability;
@@ -75,12 +75,12 @@ public class Vehicle {
     }
 
 
-    public String getbody_type(){
-        return body_type;
+    public String getbodyType(){
+        return bodyType;
     }
-    public void setbody_type(String body_type)
+    public void setbodyType(String bodyType)
     {
-        this.body_type = body_type;
+        this.bodyType = bodyType;
     }
 
     public String getengine(){
