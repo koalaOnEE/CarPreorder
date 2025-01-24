@@ -1,5 +1,6 @@
 package com.bmw;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +20,11 @@ public class Vehicle {
     private double price;
     private String color;
     private String engine;
+
+    @Column(name = "bodytype") // Match the exact database column name
     private String bodyType;
+    
+    
     private String transmission;
 
     private boolean availability;
@@ -75,10 +80,11 @@ public class Vehicle {
     }
 
 
-    public String getbodyType(){
+    public String getBodyType() {
         return bodyType;
     }
-    public void setbodyType(String bodyType)
+    
+    public void setBodyType(String bodyType)
     {
         this.bodyType = bodyType;
     }
@@ -107,11 +113,12 @@ public void setAvailability(boolean availability) {
     this.availability = availability;
 }
 
-    public String features() {
-        return features;
-    }
+public String getFeatures() {
+    return features;
+}
 
-    public void setfeatures(String features) {
-        this.features = features;
-    }
+public void setFeatures(String features) {
+    this.features = features;
+}
+
 }

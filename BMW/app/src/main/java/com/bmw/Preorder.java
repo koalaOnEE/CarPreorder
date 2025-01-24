@@ -11,20 +11,19 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-
 @Table(name = "preorders")
 public class Preorder {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-   private String customerName;
-    private String customerEmail;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Primary key
     private Integer preorderID;
+
+    private String customerName;
+    private String customerEmail;
     private LocalDateTime preorderDate;
 
-  @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "vehicle_id", nullable = false) // Foreign key column in the 'preorders' table
-    private Vehicle vehicle; 
+    private Vehicle vehicle;
 
     public Integer getPreorderID() {
         return preorderID;
@@ -50,14 +49,6 @@ public class Preorder {
         this.customerEmail = customerEmail;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
-
     public LocalDateTime getPreorderDate() {
         return preorderDate;
     }
@@ -66,5 +57,11 @@ public class Preorder {
         this.preorderDate = preorderDate;
     }
 
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
 
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
 }

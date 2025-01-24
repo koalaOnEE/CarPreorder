@@ -1,58 +1,52 @@
 package com.bmw;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
-@Entity 
+@Entity
 @Table(name = "users")
-
 public class User {
-    
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Primary key
+    private Integer userID;
 
-private String name; 
-private String email;
-private String password;
-private Integer userID;
+    private String name;
+    private String email;
+    private String password;
 
-//getters and setters
-
-    public Integer userID() {
+    // Getters and Setters
+    public Integer getUserID() {
         return userID;
     }
 
-    public void setuserID(Integer userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 
+    public String getName() {
+        return name;
+    }
 
-public String email(){
-    return email;
-}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-public void setemail(String email){
-    this.email = email;
-}
+    public String getEmail() {
+        return email;
+    }
 
-public String password(){
-    return password;
-}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-public void setpassword(String password){
-    this.password = password;
-}
+    public String getPassword() {
+        return password;
+    }
 
-public String name(){
-    return name;
-}
-
-public void setname (String name){
-    this.name = name;
-}
-
-
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

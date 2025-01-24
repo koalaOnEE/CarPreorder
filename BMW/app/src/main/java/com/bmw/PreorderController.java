@@ -1,14 +1,25 @@
 package com.bmw;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
+import com.bmw.exception.ResourceNotFoundException;
+
+import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/preorders") // Base path for Preorder-related endpoints
+@RequestMapping("/api/preorders")
 public class PreorderController {
 
     @Autowired
@@ -24,53 +35,56 @@ public class PreorderController {
         return ResponseEntity.ok(preorders);
     }
 
-    // Get a preorder by ID
+    // Get a specific preorder by ID
     @GetMapping("/{id}")
     public ResponseEntity<Preorder> getPreorderById(@PathVariable Integer id) {
-        Optional<Preorder> preorder = preorderRepository.findById(id);
-        if (preorder.isPresent()) {
-            return ResponseEntity.ok(preorder.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        Preorder preorder = preorderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Preorder not found with ID: " + id));
+        return ResponseEntity.ok(preorder);
     }
 
     // Create a new preorder
     @PostMapping
-    public ResponseEntity<Preorder> createPreorder(@RequestBody Preorder preorder) {
-        // Validate vehicle existence
+    public ResponseEntity<Preorder> createPreorder(@Valid @RequestBody Preorder preorder) {
+        // Check if the vehicle exists
         Vehicle vehicle = vehicleRepository.findById(preorder.getVehicle().getvehicleId())
-                .orElseThrow(() -> new RuntimeException("Vehicle not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Vehicle not found with ID: " + preorder.getVehicle().getvehicleId()));
 
-        // Ensure vehicle availability
+        // Ensure the vehicle is available
         if (!vehicle.availability()) {
-            return ResponseEntity.badRequest().body(null); // Return 400 Bad Request if vehicle is unavailable
+            throw new RuntimeException("Vehicle is not available for preorder.");
         }
 
-        preorder.setVehicle(vehicle); // Associate vehicle with preorder
-        Preorder savedPreorder = preorderRepository.save(preorder); // Save preorder to database
+        // Set the preorder date to the current time
+        preorder.setPreorderDate(LocalDateTime.now());
 
-        // Mark vehicle as unavailable
+        // Save the preorder
+        Preorder savedPreorder = preorderRepository.save(preorder);
+
+        // Mark the vehicle as unavailable
         vehicle.setAvailability(false);
         vehicleRepository.save(vehicle);
 
-        return ResponseEntity.ok(savedPreorder);
+        return ResponseEntity.status(201).body(savedPreorder); // Return 201 Created
     }
 
     // Update an existing preorder
     @PutMapping("/{id}")
     public ResponseEntity<Preorder> updatePreorder(
-        @PathVariable Integer id, @RequestBody Preorder preorderDetails) {
-        Preorder preorder = preorderRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Preorder not found"));
+            @PathVariable Integer id,
+            @Valid @RequestBody Preorder preorderDetails) {
 
+        Preorder preorder = preorderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Preorder not found with ID: " + id));
+
+        // Update preorder details
         preorder.setCustomerName(preorderDetails.getCustomerName());
         preorder.setCustomerEmail(preorderDetails.getCustomerEmail());
 
-        // Optional: Update associated vehicle if necessary
+        // Update associated vehicle if necessary
         if (preorderDetails.getVehicle() != null) {
             Vehicle vehicle = vehicleRepository.findById(preorderDetails.getVehicle().getvehicleId())
-                    .orElseThrow(() -> new RuntimeException("Vehicle not found"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Vehicle not found with ID: " + preorderDetails.getVehicle().getvehicleId()));
             preorder.setVehicle(vehicle);
         }
 
@@ -82,14 +96,14 @@ public class PreorderController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePreorder(@PathVariable Integer id) {
         Preorder preorder = preorderRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Preorder not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Preorder not found with ID: " + id));
 
-        // Re-mark the associated vehicle as available
+        // Mark the associated vehicle as available
         Vehicle vehicle = preorder.getVehicle();
         vehicle.setAvailability(true);
         vehicleRepository.save(vehicle);
 
         preorderRepository.delete(preorder);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build(); // Return 204 No Content
     }
 }

@@ -5,28 +5,26 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-
-
-
-//defines rest api endpoints for frontend interactions, proccesses req and interacts with vehiclerepo and reutrns responses
+@CrossOrigin(origins = "http://localhost:5173") // Allow frontend origin
 @RestController
-@RequestMapping("/vehicles")
+@RequestMapping("/api/vehicles") // Base path for all endpoints in this controller
 public class VehicleController {
+
     @Autowired
     private VehicleRepository vehicleRepository;
 
-
-@GetMapping
-public List<Vehicle> getAllVehicles() {
-    return vehicleRepository.findAll();
-}
+    @GetMapping
+    public List<Vehicle> getAllVehicles() {
+        return vehicleRepository.findAll(); // Fetches all vehicles from the database
+    }
   
 @GetMapping("/available")
 public List<Vehicle> getAvaliabVehicles() {
