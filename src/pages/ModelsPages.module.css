@@ -1,0 +1,79 @@
+/* ModelsPages.module.css */
+
+/* General styling for the page */
+.modelsPage {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background */
+}
+
+/* Container for all the cards */
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 20px; /* Space between cards */
+  justify-content: center;
+  align-items: stretch;
+  padding: 10px;
+}
+
+/* Styling for each card */
+.card {
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden;
+  text-align: center;
+  width: 400px; /* Make the cards smaller */
+ 
+  margin: auto;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+}
+
+/* Styling for card images */
+.cardImage {
+  width: 100%; /* Make image take full width of card */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 230px; /* Reduce the height of the images */
+  object-fit: cover; /* Ensure the image covers the area neatly */
+}
+
+/* Content within each card */
+.cardContent {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* Space between items */
+}
+
+/* Styling for card buttons */
+.exploreButton {
+  padding: 8px 16px; /* Smaller button */
+  background-color: #007bff; /* Blue button */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem; /* Adjust font size */
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.exploreButton:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Ensure card titles are consistent */
+.cardContent h2 {
+  font-size: 1rem; /* Adjust font size */
+  color: #333;
+}
+
+/* Styling for card paragraphs */
+.cardContent p {
+  margin: 0;
+  font-size: 0.85rem; /* Adjust font size for details */
+  color: #555; /* Subtle gray for details */
+}

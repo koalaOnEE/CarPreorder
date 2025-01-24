@@ -1,0 +1,56 @@
+.header {
+  position: fixed; /* Keep the header always at the top */
+  top: 0; /* Align the header to the top */
+  left: 0; /* Align the header to the left */
+  width: 100%; /* Span the full width of the page */
+  height: 80px; /* Set the height of the header background */
+  z-index: 1000; /* Ensure it's above other elements */
+  font-family: Arial, sans-serif;
+  /* Transparent background to show the cover photo behind */
+  background-color: rgba(29, 29, 29, 0.103); /* Semi-transparent black background */
+  color: white; /* White text for better visibility on the image */
+
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically align content */
+  justify-content: flex-start; /* Align logo and nav links to the start */
+  padding: 0 20px; /* Adjust horizontal padding */
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Space between logo and nav */
+}
+
+.logo img {
+  width: 80px; /* Adjust logo size */
+  height: auto;
+}
+nav {
+  display: flex; /* Navigation links inline */
+  align-items: center;  font-family: Arial, sans-serif;
+}
+.nav ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Space between links */
+}
+
+.nav li {
+  margin: 0;
+}
+
+.nav a {
+  text-decoration: none; /* Remove underline */
+  color: white; /* White text for better contrast */
+  font-size: 1.12rem; /* Slightly larger font size */
+  font-weight: 500;
+  transition: color 0.3s; /* Smooth hover effect */
+}
+
+.nav a:hover {
+  color: rgb(0, 0, 0); /* Change link color on hover */
+}

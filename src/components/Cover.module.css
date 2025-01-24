@@ -1,0 +1,74 @@
+/* Remove any margin and padding from the body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Optional: Global font */
+  }
+  
+  /* Cover container */
+  .coverContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    margin: 0 0 50px 0; /* Ensure no margin below the cover */
+    padding: 0; /* Ensure no padding inside the container */
+
+  }
+  .coverContainer + .photoGrid {
+    margin-top: 0;
+  }
+  
+  /* Cover photo */
+  .coverPhoto {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Text on the image */
+ /* Text on the image */
+.textOnImage {
+    position: absolute;
+    top: 10%; /* Position near the top */
+    left: 2%; /* Move the text closer to the far left */
+    color: white; /* White text for visibility */
+    text-align: left; /* Align text to the left */
+    font-family: Arial, sans-serif;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Add a shadow for blending */
+  }
+  
+  
+  /* Dynamically resizing title */
+  .textOnImage h1 {
+    font-size: 2.3vw; /* Font size scales based on viewport width */
+    margin: 15px 0 10px 0;
+    font-weight: bold;
+    line-height: 1.2; /* Adjust line height for better spacing */
+  }
+  .textOnImage h2 {
+    font-size: 2.3vw; /* Font size scales based on viewport width */
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    line-height: 1.2; /* Adjust line height for better spacing */
+  }
+  /* Dynamically resizing description */
+  .textOnImage p {
+    font-size: 1.12vw; /* Font size scales based on viewport width */
+    margin: 0;
+    line-height: 1.5; /* Adjust line height for better readability */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .textOnImage h1 {
+      font-size: 6vw; /* Adjust heading size for smaller screens */
+    }
+    .textOnImage h2{
+        font-size: 6vw; /* Adjust heading size for smaller screens */
+      }
+    .textOnImage p {
+      font-size: 4vw; /* Adjust paragraph size for smaller screens */
+    }
+  }
+  
