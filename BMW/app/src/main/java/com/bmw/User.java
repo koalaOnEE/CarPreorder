@@ -21,7 +21,7 @@ private Integer userID;
 
 //getters and setters
 
-    public Integer userID() {
+    public Integer getuserID() {
         return userID;
     }
 
@@ -30,23 +30,23 @@ private Integer userID;
     }
 
 
-public String email(){
+public String getEmail(){
     return email;
 }
 
-public void setemail(String email){
+public void setEmail(String email){
     this.email = email;
 }
 
-public String password(){
+public String getPassword(){
     return password;
 }
 
-public void setpassword(String password){
+public void setPassword(String password){
     this.password = password;
 }
 
-public String name(){
+public String getname(){
     return name;
 }
 

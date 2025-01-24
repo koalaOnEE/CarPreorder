@@ -33,14 +33,17 @@ CREATE TABLE preorders (
 
 INSERT INTO vehicles (model, year, price, color, bodyType, engine, transmission, availability, features)
 VALUES
-( 'X1', 2024, 41000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( 'X2', 2024, 43000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( 'X3', 2024, 49500, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( 'X4', 2024, 55300, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( 'X5', 2024, 65700, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( 'X6', 2024, 74500, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( 'X7', 2024, 83000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( 'iX', 2024, 87000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( '2 Series', 2024, 41600, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
-( '3 Series', 2024, 45000, 'White', 'Sedan', 'Diesel', 'Manual', true, 'Heated' );
+( 'X1', 2025, 41000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( 'X2', 2025, 43000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( 'X3', 2025, 49500, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( 'X4', 2025, 55300, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( 'X5', 2025, 65700, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( 'X6', 2025, 74500, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( 'X7', 2025, 83000, 'Black', 'SUV', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( 'iX', 2025, 87000, 'Black', 'SUV', 'Electric', 'Automatic', true, 'Sunroof, Navigation'),
+( 'i5', 2025, 67100, 'Black', 'Sedan', 'Electric', 'Automatic', true, 'Sunroof, Navigation'),
+( '2 Series', 2025, 41600, 'Black', 'Coupe', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( '7 Series', 2025, 96400, 'Black', 'Sedan', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( '4 Series', 2025, 49200, 'Black', 'Sedan', 'Petrol', 'Automatic', true, 'Sunroof, Navigation'),
+( '3 Series', 2025, 45000, 'White', 'Sedan', 'Diesel', 'Manual', true, 'Heated' );
 
